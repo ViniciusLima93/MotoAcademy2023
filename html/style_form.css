@@ -1,0 +1,33 @@
+
+
+
+header {
+    text-align: center;
+    justify-content: center;
+}
+
+
+body{
+    margin: 0 auto;
+    padding: 0;
+    background-color:#131213;
+    text-align: center;
+    justify-content: center;
+}
+
+li {
+    margin: 0 42rem;
+    text-align: center;
+    justify-content: center;
+    color: rgb(201, 171, 187)
+}
+
+a {
+    color: rgb(201, 171, 187);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    color: aquamarine;
+    font-style: italic;
+}
