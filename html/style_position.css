@@ -4,6 +4,7 @@ body {
     padding: 0px;
     height: 180vh;
     width: 240vh;
+    overflow: hidden;
 }
 
 .pai {
@@ -24,4 +25,26 @@ body {
     left: 50px;
     border: 1px solid black;
 
+}
+
+.paragrafo {
+    width: 600px;
+    margin: 20px;
+    font-family: 'Roboto',sans-serif;
+    color:azure;
+}
+
+.paragrafo2 {
+    width: 600px;
+    margin: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-style: italic;
+    color:rgb(66, 128, 128);
+    font-size:200%;
+    font-weight: 900;
+    text-transform: lowercase;
+    box-shadow: 10px 15px 14px black;
+    text-shadow: 5px 6px 4px blue, 5px 3px 2px goldenrod;
+    text-align: left;
+    text-decoration-color: aqua ;
 }
