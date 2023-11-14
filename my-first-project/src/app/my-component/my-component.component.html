@@ -1,0 +1,24 @@
+<section>
+    <div style="color: red">
+        {{phrase.boanoite}}
+    </div>
+    <br>
+        <div *ngFor="let aluno of alunos">
+            Aluno : {{aluno.nome}}
+        
+        <div *ngIf="aluno.idade > 2" >
+            Idade: {{aluno.idade}}
+        </div>
+        <div>
+            Trabalho : {{aluno.trabalho}}
+        </div>
+
+        <p style="font-size: 20px; color: green">
+          {{aluno.salario}}  
+        </p>
+        </div>
+
+        
+    
+   
+</section>
