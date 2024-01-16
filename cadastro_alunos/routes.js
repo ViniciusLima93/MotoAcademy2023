@@ -124,4 +124,42 @@ router.delete('/aulas/:id', (req,res) => {
     });
 })
 
+router.post('/inscricao', (req,res) => {
+    const {id_aluno, id_aula} = req.body;
+    const query = `INSERT INTO alunos_aulas (id_aula, id_aluno) VALUES(${id_aluno}, ${id_aula})`
+
+    db.query(query, (err, result) => {
+        if(err) {
+            res.status(500).send(`Erro ao inscrever-se ${JSON.stringify(err)}`)
+        } else {
+            res.statusMessage(201).send('Inscrição efetuada com sucesso')
+        }
+    })
+})
+
+router.get('/inscricao', (req,res) => {
+    const query  = 'SELECT * FROM alunos_aulas';
+
+    db.query(query, (err,result) => {
+        if(err) {
+            res.status(500).send('Erro ao obter inscrição')
+        } else {
+            res.json(result)
+        }
+    })
+})
+
+router.get('/inscricao/:id', (req, res) => {
+    const {id} = req.params
+    const query = `SELECT * FROM alunos_aulas WHERE id_alunos=${id}`
+    
+    db.query(query, (err, result) => {
+        if(err) {
+            res.status(500).send('Erro ao obter inscrição do aluno')
+        } else {
+            res.json(result)
+        }
+    })
+})
+
 module.exports = router;
