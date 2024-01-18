@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('./db');
+const ValidatorMiddlware = require('./middlewares/validatorMiddleware')
 
 //endpoint leitura de alunos
 router.get('/alunos', (req, res) => {
@@ -16,7 +17,7 @@ router.get('/alunos', (req, res) => {
 });
 
 //endpoint de Criação de Aluno
-router.post('/alunos', (req, res) => {
+router.post('/alunos',ValidatorMiddlware.validateInput, (req, res) => {
     const {nome, idade} = req.body;
 
     const query = `INSERT INTO alunos(nome, idade) VALUES('${nome}', ${idade})`;
@@ -126,13 +127,15 @@ router.delete('/aulas/:id', (req,res) => {
 
 router.post('/inscricao', (req,res) => {
     const {id_aluno, id_aula} = req.body;
-    const query = `INSERT INTO alunos_aulas (id_aula, id_aluno) VALUES(${id_aluno}, ${id_aula})`
+
+
+    const query = `INSERT INTO alunos_aulas (id_aluno, id_aula) VALUES('${id_aluno}', '${id_aula}')`
 
     db.query(query, (err, result) => {
         if(err) {
             res.status(500).send(`Erro ao inscrever-se ${JSON.stringify(err)}`)
         } else {
-            res.statusMessage(201).send('Inscrição efetuada com sucesso')
+            res.status(201).send('Inscrição efetuada com sucesso')
         }
     })
 })
